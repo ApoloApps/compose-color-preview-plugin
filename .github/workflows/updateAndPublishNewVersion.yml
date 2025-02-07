@@ -85,8 +85,16 @@ jobs:
         with:
           if-no-files-found: error
           overwrite: true
-          name: compose-color-preview-plugin
+          name: ${{ inputs.plugin }}
           path: plugin/build/distributions/compose-color-preview-plugin-${{ inputs.plugin }}*.zip
 
       - name: Update Local Plugin XML
-        run: ./gradlew updateLocalPluginXml -PpluginDownloadUrl=${{ steps.compose-color-preview-plugin.outputs.artifact-url }}
+        run: ./gradlew updateLocalPluginXml -PpluginDownloadUrl=${{ steps.${{ inputs.plugin }}.outputs.artifact-url }}
+
+      - name: Commit updatePlugins.xml
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add updatePlugins.xml
+          git commit -m "Update updatePlugins.xml with new pluginDownloadUrl" || echo "No changes to commit"
+          git push
