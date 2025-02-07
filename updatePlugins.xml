@@ -1,0 +1,9 @@
+
+<plugins>
+    <plugin id="" url="https://github.com/ApoloApps/compose-color-preview-plugin/actions/runs/13206659528/artifacts/2556221009" version="unspecified">
+        <change-notes>Updated to unspecified</change-notes>
+        <description>Plugin Description</description>
+        <name>PluginName</name>
+        <idea-version since-build="251.0" until-build="252.*"/>
+    </plugin>
+</plugins>
