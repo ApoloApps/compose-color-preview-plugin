@@ -1,0 +1,90 @@
+name: Publish IntelliJ Plugin
+
+on:
+  workflow_dispatch:
+    inputs:
+      intellij-idea-platform-plugin:
+        description: 'IntelliJ IDEA Platform Plugin version'
+        type: string
+        required: true
+      plugin:
+        description: 'Plugin version'
+        type: string
+        required: true
+      idea-name:
+        description: 'Idea name version'
+        type: string
+        required: true
+      idea-code-min:
+        description: 'Minimum IDE version code'
+        type: string
+        required: true
+      idea-code-max:
+        description: 'Maximum IDE version code'
+        type: string
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Update IntelliJ Platform Version
+        uses: rahulp959/toml-editor@v1.0.1
+        with:
+          file: "gradle/deps.versions.toml"
+          key: "versions.intellij-idea-platform-plugin"
+          value: "${{ inputs.intellij-idea-platform-plugin }}"
+
+      - name: Update Plugin Version
+        uses: rahulp959/toml-editor@v1.0.1
+        with:
+          file: "gradle/deps.versions.toml"
+          key: "versions.plugin"
+          value: "${{ inputs.plugin }}"
+
+      - name: Update IDE Name Version
+        uses: rahulp959/toml-editor@v1.0.1
+        with:
+          file: "gradle/deps.versions.toml"
+          key: "versions.idea-name"
+          value: "${{ inputs.idea-name }}"
+
+      - name: Update IDE Code Min Version
+        uses: rahulp959/toml-editor@v1.0.1
+        with:
+          file: "gradle/deps.versions.toml"
+          key: "versions.idea-code-min"
+          value: "${{ inputs.idea-code-min }}"
+
+      - name: Update IDE Code Max Version
+        uses: rahulp959/toml-editor@v1.0.1
+        with:
+          file: "gradle/deps.versions.toml"
+          key: "versions.idea-code-max"
+          value: "${{ inputs.idea-code-max }}"
+
+      - name: Setup JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: 21
+
+      - name: Grant gradlew permissions
+        run: chmod +x gradlew
+
+      - name: Build Plugin
+        run: ./gradlew buildPlugin
+
+      - name: Upload Plugin Artifact
+        id: compose-color-preview-plugin
+        uses: actions/upload-artifact@v4
+        with:
+          name: compose-color-preview-plugin
+          path: plugin/build/distributions/compose-color-preview-plugin-${{ inputs.plugin }}.zip
+
+      - name: Update Local Plugin XML
+        run: ./gradlew updateLocalPluginXml -PpluginDownloadUrl=${{ steps.compose-color-preview-plugin.outputs.artifact-url }}
