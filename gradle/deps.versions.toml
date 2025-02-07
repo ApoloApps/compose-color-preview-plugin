@@ -10,6 +10,7 @@ idea-name = "251.20015.29"
 #https://data.services.jetbrains.com/products?fields=code,releases,releases.version,releases.build,releases.type,releases.majorVersion&code=IC
 idea-code-min = "251"
 idea-code-max = "252.*"
+version ="0.0.10-251"
 
 jvm = "21"
 
