@@ -3,17 +3,12 @@
 .kotlin
 build/
 !gradle/wrapper/gradle-wrapper.jar
-!**/src/Main/**/build/
-!**/src/test/**/build/
 
 ### IntelliJ IDEA ###
 .intellijPlatform
 *.iws
 *.iml
 *.ipr
-out/
-!**/src/Main/**/out/
-!**/src/test/**/out/
 
 ### Mac OS ###
 .DS_Store
