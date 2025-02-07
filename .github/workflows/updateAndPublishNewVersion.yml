@@ -98,3 +98,5 @@ jobs:
           git add updatePlugins.xml
           git commit -m "Update updatePlugins.xml with new pluginDownloadUrl" || echo "No changes to commit"
           git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
