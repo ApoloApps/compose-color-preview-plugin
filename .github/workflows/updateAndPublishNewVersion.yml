@@ -84,7 +84,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: compose-color-preview-plugin
-          path: plugin/build/distributions/*.zip
+          path: plugin/build/distributions/compose-color-preview-plugin-${{ inputs.plugin }}.zip
 
       - name: Update Local Plugin XML
         run: ./gradlew updateLocalPluginXml -PpluginDownloadUrl=${{ steps.compose-color-preview-plugin.outputs.artifact-url }}
