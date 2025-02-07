@@ -24,7 +24,6 @@ rootProject.name = "compose-color-preview"
 
 include(
     ":plugin",
-    ":sample",
 )
 
 project(":plugin").name = "compose-color-preview-plugin"

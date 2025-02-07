@@ -18,4 +18,3 @@ kotlin-forPlugin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin-forP
 kotlin-forSample = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin-forSample" }
 intellij = { id = "org.jetbrains.intellij.platform", version.ref = "intellij-idea-platform-plugin" }
 compose = { id = "org.jetbrains.compose", version.ref = "compose" }
-compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin-forSample" }
