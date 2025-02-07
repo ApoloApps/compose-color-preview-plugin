@@ -23,7 +23,12 @@ on:
         description: 'Maximum IDE version code'
         type: string
         required: true
-
+        
+permissions:
+      # Give the default GITHUB_TOKEN write permission to commit and push the
+      # updated CHANGELOG back to the repository.
+      # https://github.blog/changelog/2023-02-02-github-actions-updating-the-default-github_token-permissions-to-read-only/
+      contents: write
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -89,14 +94,17 @@ jobs:
           path: plugin/build/distributions/compose-color-preview-plugin-${{ inputs.plugin }}*.zip
 
       - name: Update Local Plugin XML
-        run: ./gradlew updateLocalPluginXml -PpluginDownloadUrl=${{ steps.compose-color-preview-plugin.outputs.artifact-url }}
-
-      - name: Commit plugin/updatePlugins.xml
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add plugin/updatePlugins.xml
-          git commit -m "Update updatePlugins.xml with new pluginDownloadUrl" || echo "No changes to commit"
-          git push
+        run: ./gradlew updateLocalPluginXml -PpluginDownloadUrl=https://raw.githack.com/ApoloApps/compose-color-preview-plugin/refs/heads/main/plugin/build/distributions/compose-color-preview-plugin-${{inputs.plugin}}.zip
+      - name: Commit everything
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Upload artifacts
+      #- name: Commit plugin/updatePlugins.xml
+      #  run: |
+      #    git config user.name "github-actions[bot]"
+      #    git config user.email "github-actions[bot]@users.noreply.github.com"
+      #    git add plugin/updatePlugins.xml
+      #    git commit -m "Update updatePlugins.xml with new pluginDownloadUrl" || echo "No changes to commit"
+      #    git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
