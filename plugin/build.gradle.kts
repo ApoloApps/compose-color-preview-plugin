@@ -81,8 +81,8 @@ tasks {
         pluginId.set(project.group.toString())
         version.set(project.version.toString())
         pluginDescription.set("Color Preview Compose Internal Apolo Apps")
-        changeNotes.set("Updated to ${project.version.toString()}")
-        sinceBuild.set(deps.versions.idea.code.min.get())
+        changeNotes.set("Updated to ${project.version}")
+        sinceBuild.set(deps.versions.idea.code.min.get().toInt().toString())
         untilBuild.set(deps.versions.idea.code.max.get())
     }
 
