@@ -10,10 +10,10 @@ tasks {
         updateFile.set(file("updatePlugins.xml"))
         pluginName.set("PluginName")
         downloadUrl.set(project.extra["pluginDownloadUrl"].toString())
-        pluginId.set(project.group.toString())
-        version.set(project.version.toString())
+        pluginId.set(project.childProjects["plugin"]?.group.toString())
+        version.set(project.childProjects["plugin"]?.version.toString())
         pluginDescription.set("Plugin Description")
-        changeNotes.set("Updated to ${project.version}")
+        changeNotes.set("Updated to ${project.childProjects["plugin"]?.version.toString()}")
         sinceBuild.set(deps.versions.idea.code.min.get())
         untilBuild.set(deps.versions.idea.code.max.get())
     }
