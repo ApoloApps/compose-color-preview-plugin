@@ -10,7 +10,11 @@ repositories {
     mavenCentral()
     google()
     gradlePluginPortal()
-
+    maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
+    maven("https://www.jetbrains.com/intellij-repository/releases")
+    maven("https://www.jetbrains.com/intellij-repository/snapshots")
+    maven("https://cache-redirector.jetbrains.com/intellij-dependencies")
+    intellijPlatform.snapshots()
     intellijPlatform.defaultRepositories()
 }
 
@@ -40,7 +44,7 @@ intellijPlatform {
         version = project.version.toString()
         ideaVersion {
             sinceBuild = deps.versions.idea.code.min
-            untilBuild = "${deps.versions.idea.code.max.get()}.*"
+            untilBuild = deps.versions.idea.code.max.get()
         }
     }
 
@@ -77,3 +81,6 @@ val runIdeK2 by intellijPlatformTesting.runIde.registering {
 }
 
 fun stringProp(key: String) = project.findProperty(key).toString()
+
+
+
