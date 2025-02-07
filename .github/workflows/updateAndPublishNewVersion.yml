@@ -35,35 +35,35 @@ jobs:
       - name: Update IntelliJ Platform Version
         uses: rahulp959/toml-editor@v1.0.1
         with:
-          file: "gradle/libs.versions.toml"
+          file: "gradle/deps.versions.toml"
           key: "versions.intellij-idea-platform-plugin"
           value: "${{ inputs.intellij-idea-platform-plugin }}"
 
       - name: Update Plugin Version
         uses: rahulp959/toml-editor@v1.0.1
         with:
-          file: "gradle/libs.versions.toml"
+          file: "gradle/deps.versions.toml"
           key: "versions.plugin"
           value: "${{ inputs.plugin }}"
 
       - name: Update IDE Name Version
         uses: rahulp959/toml-editor@v1.0.1
         with:
-          file: "gradle/libs.versions.toml"
+          file: "gradle/deps.versions.toml"
           key: "versions.idea-name"
           value: "${{ inputs.idea-name }}"
 
       - name: Update IDE Code Min Version
         uses: rahulp959/toml-editor@v1.0.1
         with:
-          file: "gradle/libs.versions.toml"
+          file: "gradle/deps.versions.toml"
           key: "versions.idea-code-min"
           value: "${{ inputs.idea-code-min }}"
 
       - name: Update IDE Code Max Version
         uses: rahulp959/toml-editor@v1.0.1
         with:
-          file: "gradle/libs.versions.toml"
+          file: "gradle/deps.versions.toml"
           key: "versions.idea-code-max"
           value: "${{ inputs.idea-code-max }}"
 
