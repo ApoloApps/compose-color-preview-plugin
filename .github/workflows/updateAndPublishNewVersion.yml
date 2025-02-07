@@ -91,11 +91,11 @@ jobs:
       - name: Update Local Plugin XML
         run: ./gradlew updateLocalPluginXml -PpluginDownloadUrl=${{ steps.compose-color-preview-plugin.outputs.artifact-url }}
 
-      - name: Commit updatePlugins.xml
+      - name: Commit plugin/updatePlugins.xml
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add updatePlugins.xml
+          git add plugin/updatePlugins.xml
           git commit -m "Update updatePlugins.xml with new pluginDownloadUrl" || echo "No changes to commit"
           git push
         env:

@@ -4,6 +4,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     alias(deps.plugins.kotlin.forPlugin)
     alias(deps.plugins.intellij)
+    id ("dev.bmac.intellij.plugin-uploader") version "1.3.5"
     java
 }
 
@@ -72,6 +73,17 @@ tasks {
 
     compileKotlin {
         compilerOptions.jvmTarget = JvmTarget.fromTarget(jvmVersion)
+    }
+    register("updateLocalPluginXml", dev.bmac.gradle.intellij.UpdateXmlTask::class.java) {
+        updateFile.set(file("updatePlugins.xml"))
+        pluginName.set("Color Preview Compose Internal Apolo Apps")
+        downloadUrl.set(project.extra["pluginDownloadUrl"].toString())
+        pluginId.set(project.group.toString())
+        version.set(project.version.toString())
+        pluginDescription.set("Color Preview Compose Internal Apolo Apps")
+        changeNotes.set("Updated to ${project.version.toString()}")
+        sinceBuild.set(deps.versions.idea.code.min.get())
+        untilBuild.set(deps.versions.idea.code.max.get())
     }
 
 }
