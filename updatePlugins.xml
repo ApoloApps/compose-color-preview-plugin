@@ -6,4 +6,10 @@
         <name>PluginName</name>
         <idea-version since-build="251.0" until-build="252.*"/>
     </plugin>
+    <plugin id="null" url="https://github.com/ApoloApps/compose-color-preview-plugin/actions/runs/13206849948/artifacts/2556283159" version="null">
+        <change-notes>Updated to null</change-notes>
+        <description>Plugin Description</description>
+        <name>PluginName</name>
+        <idea-version since-build="251.0" until-build="252.*"/>
+    </plugin>
 </plugins>
