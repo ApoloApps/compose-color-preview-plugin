@@ -83,6 +83,8 @@ jobs:
         id: compose-color-preview-plugin
         uses: actions/upload-artifact@v4
         with:
+          if-no-files-found: error
+          overwrite: true
           name: compose-color-preview-plugin
           path: plugin/build/distributions/compose-color-preview-plugin-${{ inputs.plugin }}.zip
 
