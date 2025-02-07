@@ -1,7 +1,6 @@
 .idea
 .gradle
 .kotlin
-build/
 !gradle/wrapper/gradle-wrapper.jar
 
 ### IntelliJ IDEA ###
@@ -12,3 +11,10 @@ build/
 
 ### Mac OS ###
 .DS_Store
+/build/reports/configuration-cache/28ddou4yd59pzurd1wsbrfwo5/3tgpsv2dizdy2xlmbouznmurl/configuration-cache-report.html
+/build/reports/configuration-cache/28ddou4yd59pzurd1wsbrfwo5/a95cm9toocros9x3kwk3757t5/configuration-cache-report.html
+/build/reports/configuration-cache/28ddou4yd59pzurd1wsbrfwo5/by62afuj8xki52bvczrh894m0/configuration-cache-report.html
+/build/reports/configuration-cache/66o2yl6cx3foie5irsbyv6mz2/3j5pxld77ap8wgrel700oqmka/configuration-cache-report.html
+/build/reports/configuration-cache/616n2e08ydtzbxu8klscwbrx6/a45pdukxb2maexohsumey1udq/configuration-cache-report.html
+/build/reports/configuration-cache/cmztn0assuqexy9ujkyd54cqn/7g9iw1yr9kzvt4575qvg1lm5t/configuration-cache-report.html
+/build/reports/problems/problems-report.html

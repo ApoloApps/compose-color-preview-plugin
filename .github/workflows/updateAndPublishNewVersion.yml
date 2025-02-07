@@ -84,14 +84,14 @@ jobs:
       - name: Build Plugin
         run: ./gradlew buildPlugin
 
-      - name: Upload Plugin Artifact
-        id: compose-color-preview-plugin
-        uses: actions/upload-artifact@v4
-        with:
-          if-no-files-found: error
-          overwrite: true
-          name: compose-color-preview-plugin
-          path: plugin/build/distributions/compose-color-preview-plugin-${{ inputs.plugin }}*.zip
+        #- name: Upload Plugin Artifact
+        #  id: compose-color-preview-plugin
+        #  uses: actions/upload-artifact@v4
+          #  with:
+          #   if-no-files-found: error
+          #   overwrite: true
+          #   name: compose-color-preview-plugin
+      #   path: plugin/build/distributions/compose-color-preview-plugin-${{ inputs.plugin }}*.zip
 
       - name: Update Local Plugin XML
         run: ./gradlew updateLocalPluginXml -PpluginDownloadUrl=https://raw.githack.com/ApoloApps/compose-color-preview-plugin/refs/heads/main/plugin/build/distributions/compose-color-preview-plugin-${{inputs.plugin}}.zip
@@ -99,6 +99,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: Upload artifacts
+          file_pattern: 'plugin/updatePlugins.xml plugin/build/distributions/*.zip'
       #- name: Commit plugin/updatePlugins.xml
       #  run: |
       #    git config user.name "github-actions[bot]"
