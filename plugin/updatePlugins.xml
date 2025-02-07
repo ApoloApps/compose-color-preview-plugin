@@ -1,6 +1,6 @@
 
 <plugins>
-    <plugin id="ru.ztrap.plugin.idea" url="https://github.com/ApoloApps/compose-color-preview-plugin/actions/runs/13209375381/artifacts/2557114130" version="0.0.10-251">
+    <plugin id="ru.ztrap.plugin.idea" url="https://raw.githack.com/ApoloApps/compose-color-preview-plugin/refs/heads/main/plugin/build/distributions/compose-color-preview-plugin-0.0.10.zip" version="0.0.10-251">
         <change-notes>Updated to 0.0.10-251</change-notes>
         <description>Color Preview Compose Internal Apolo Apps</description>
         <name>Color Preview Compose Internal Apolo Apps</name>
