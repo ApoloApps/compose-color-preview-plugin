@@ -85,11 +85,11 @@ jobs:
         with:
           if-no-files-found: error
           overwrite: true
-          name: ${{ inputs.plugin }}
+          name: compose-color-preview-plugin
           path: plugin/build/distributions/compose-color-preview-plugin-${{ inputs.plugin }}*.zip
 
       - name: Update Local Plugin XML
-        run: ./gradlew updateLocalPluginXml -PpluginDownloadUrl=${{ steps.${{ inputs.plugin }}.outputs.artifact-url }}
+        run: ./gradlew updateLocalPluginXml -PpluginDownloadUrl=${{ steps.compose-color-preview-plugin.outputs.artifact-url }}
 
       - name: Commit updatePlugins.xml
         run: |
