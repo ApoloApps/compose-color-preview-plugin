@@ -94,7 +94,7 @@ jobs:
       #   path: plugin/build/distributions/compose-color-preview-plugin-${{ inputs.plugin }}*.zip
 
       - name: Update Local Plugin XML
-        run: ./gradlew updateLocalPluginXml -PpluginDownloadUrl=https://raw.githack.com/ApoloApps/compose-color-preview-plugin/refs/heads/main/plugin/build/distributions/compose-color-preview-plugin-${{inputs.plugin}}.zip
+        run: ./gradlew updateLocalPluginXml -PpluginDownloadUrl=https://raw.githack.com/ApoloApps/compose-color-preview-plugin/refs/heads/main/plugin/build/distributions/compose-color-preview-plugin-${{inputs.plugin}}-${{ inputs.idea-code-min }}.zip
       - name: Commit everything
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
