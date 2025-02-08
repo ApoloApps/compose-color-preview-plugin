@@ -2,6 +2,8 @@
 
 # ![Preview](plugin/src/main/resources/META-INF/pluginIcon.svg) Compose color preview plugin for JetBrains IDE family
 
+#### To use this version of the plugin, add this url [https://raw.githack.com/ApoloApps/compose-color-preview-plugin/refs/heads/main/plugin/updatePlugins.xml](https://raw.githack.com/ApoloApps/compose-color-preview-plugin/refs/heads/main/plugin/updatePlugins.xml) and search in plugins marketplace search bar "Apolo Apps"
+
 This plugin draws colors in the editor gutter and the code completion popup. You can modify them by clicking on the icons in the gutter
 
 It works with the `androidx.compose.ui.graphics.Color` from
