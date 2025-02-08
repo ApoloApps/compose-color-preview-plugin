@@ -1,6 +1,6 @@
 <idea-plugin>
-    <id>ru.ztrap.plugin.idea.compose-color-preview</id>
-    <name>Compose Color Preview</name>
+    <id>ru.ztrap.plugin.idea.apoloapps</id>
+    <name>Compose Color Preview Apolo Apps Internal</name>
     <category>Editor</category>
     <vendor url="https://github.com/zTrap" email="ztrap.developer@gmail.com">Peter Gulko (zTrap)</vendor>
 
