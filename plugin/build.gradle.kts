@@ -21,7 +21,7 @@ repositories {
     intellijPlatform.defaultRepositories()
 }
 
-group = "ru.ztrap.plugin.idea"
+group = "ru.ztrap.plugin.idea.apoloapps"
 version = "${deps.versions.plugin.get()}-${deps.versions.idea.code.min.get()}"
 
 dependencies {
